@@ -1,32 +1,32 @@
 'use strict';
 const activity = [
   {
-    "date": 12-1-2019,
+    "date": new Date(),
     "duration": 1,
     "activity": "gym"
   },
   {
-    "date": 12-1-2019,
+    "date": new Date(),
     "duration": 1,
     "activity": "cooking"
   },
   {
-    "date": 12-1-2019,
+    "date": new Date(),
     "duration": 8,
     "activity": "work"
   },
   {
-    "date": 12-2-2019,
+    "date": new Date(),
     "duration": 1,
     "activity": "drawing"
   },
   {
-    "date": 12-2-2019,
+    "date": new Date(),
     "duration": 3,
     "activity": "cleaning"
   },
   {
-    "date": 12-2-2019,
+    "date": new Date(),
     "duration": 8,
     "activity": "sleep"
   }
@@ -49,7 +49,7 @@ module.exports = {
      return s
    })
 
-   return queryInterface.bulkInsert('Activity_Tracker', activityRecord, {})
+   return queryInterface.bulkInsert('Activity_Trackers', activityRecord, {})
 
   },
 
@@ -62,7 +62,7 @@ module.exports = {
       return queryInterface.bulkDelete('People', null, {});
     */
    
-    return queryInterface.bulkDelete('Activity_Tracker', null, {})
+    return queryInterface.bulkDelete('Activity_Trackers', null, {})
 
   }
 };
