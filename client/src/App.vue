@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
+    <ActivityForm></ActivityForm>
     <!-- todo - content -->
     <Footer></Footer>
   </div>
@@ -8,12 +9,15 @@
 
 <script>
 import Header from '@/components/Header'
+import ActivityForm from '@/components/ActivityForm'
 import Footer from '@/components/Footer'
 
 export default {
   name: 'app',
   components: {
-    Header, Footer
+    Header, 
+    ActivityForm,
+    Footer
   }
 }
 </script>
