@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <ActivityForm></ActivityForm>
-    <!-- todo - content -->
+    <!-- <RouterView></RouterView> -->
     <Footer></Footer>
   </div>
 </template>

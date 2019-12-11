@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import BootstrapVue from 'bootstrap-vue'
+//Import VueRouter library, and this app's routes
+import VueRouter from 'vue-router'
+import router from './router'
 
+import BootstrapVue from 'bootstrap-vue'
 import ActivityAPIService from '@/services/activityService'
+
+Vue.use(VueRouter) //Use VueRouter
 
 //Configure Bootstrap
 Vue.use(BootstrapVue)
@@ -18,4 +23,5 @@ Vue.prototype.$activityService = ActivityAPIService
 
 new Vue({
   render: h => h(App),
+  router              /* include the routes */
 }).$mount('#app')
