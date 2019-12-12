@@ -20,9 +20,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" for="howLong">Duration</label>
+                        <label class="form-label" for="duration">Duration</label>
                         <!-- TODO v-model to app data property -->
-                        <input id="howLong" class="form-control" v-model.number.lazy="duration">
+                        <input id="duration" class="form-control" v-model.number.lazy="duration">
                     </div>
 
                     <div class="form-group">
@@ -53,6 +53,8 @@ export default {
             date: '',
             duration: '',
             types: ['sketching', 'cleaning', 'walking', 'programming','studying'],
+            type: 'programming',
+            activityRecords: '',
             errors: []
         }
     },
@@ -61,25 +63,28 @@ export default {
                   this.errors = []
 
                   //Validation for the date
-                  if (this.whenLocal == 'Invalid Date' || this.whenLocal.getTime() > new Date().getTime()) {
-                      this.errors.push('Select a valid date, today or in the past')
-                  }
+                //   if (this.whenLocal == 'Invalid Date' || this.whenLocal.getTime() > new Date().getTime()) {
+                //       this.errors.push('Select a valid date, today or in the past')
+                //   }
 
                   //Validation for the duration
-                  if (typeof (this.howLong) != "number" || this.howLong <= 0) {
+                  if (typeof (this.duration) != "number" || this.duration <= 0) {
                       this.errors.push('The number of hours must be a number greater than zero.')
                   }
 
                   if (this.errors.length == 0) {
-                        let record = {
-                            when: this.whenLocal,
-                            howLong: this.howLong,
-                            type: this.type
+                        let activity = {
+                            date: this.date,
+                            duration: this.duration,
+                            activity: this.type
                         }
-                        this.activityRecords.push(record)
-                        this.activityRecords.sort(function (r1, r2) {
-                            return r1.when.getTime() - r2.when.getTime()
+                        this.$activityService.addActivity(activity).then( activity => {
+                            console.log('It works')
                         })
+                        //this.activityRecords.push(record)
+                        // this.activityRecords.sort(function (r1, r2) {
+                        //     return r1.when.getTime() - r2.when.getTime()
+                        // })
                     }
                 }
             }

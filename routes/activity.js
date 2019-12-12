@@ -13,4 +13,10 @@ router.get('/activity', function(req, res, next){
         .catch( err => next.err() )
 })
 
+router.post('/activity', function(req, res, next) {
+        Activity.create(req.body).then( (data) => {
+                return res.status(201).send('ok')
+        })
+})
+
 module.exports = router
