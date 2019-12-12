@@ -58,14 +58,22 @@ export default {
             errors: []
         }
     },
+    computed: {
+        whenLocal() {
+            let date = new Date(this.when)
+            let timestamp = date.getTime() + (date.getTimezoneOffset() * 60 * 1000)
+            let localDate = new Date(timestamp)
+            return localDate
+        }
+    },
     methods: {
               submit() {
                   this.errors = []
 
                   //Validation for the date
-                //   if (this.whenLocal == 'Invalid Date' || this.whenLocal.getTime() > new Date().getTime()) {
-                //       this.errors.push('Select a valid date, today or in the past')
-                //   }
+                  if (this.whenLocal == 'Invalid Date' || this.date.getTime() > new Date().getTime()) {
+                       this.errors.push('Select a valid date, today or in the past')
+                  }
 
                   //Validation for the duration
                   if (typeof (this.duration) != "number" || this.duration <= 0) {
