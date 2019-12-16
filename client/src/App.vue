@@ -1,8 +1,7 @@
 <template>
   <div id="app">
     <Header></Header>
-    <ActivityForm></ActivityForm>
-    <!-- <RouterView></RouterView> -->
+    <RouterView></RouterView>
     <Footer></Footer>
   </div>
 </template>
@@ -10,6 +9,7 @@
 <script>
 import Header from '@/components/Header'
 import ActivityForm from '@/components/ActivityForm'
+import ActivityTable from '@/components/ActivityTable'
 import Footer from '@/components/Footer'
 
 export default {
@@ -17,6 +17,7 @@ export default {
   components: {
     Header, 
     ActivityForm,
+    ActivityTable,
     Footer
   }
 }

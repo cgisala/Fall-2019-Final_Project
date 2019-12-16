@@ -8,6 +8,10 @@
             </span>
 
             <span class="p-3">
+                <router-link to="/table">Table</router-link>
+            </span>
+
+            <span class="p-3">
                 <router-link to="/about">About this site</router-link>
             </span>
         </div>

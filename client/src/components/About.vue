@@ -2,7 +2,8 @@
     <div class="about">
         <h2>What is this site for?</h2>
 
-        <p>Use this site to analyze the amount of time spent on activities</p>
+        <p>This site is for tracking and analyzing personal activities</p>
+        <p></p>
     </div>
 </template>
 
