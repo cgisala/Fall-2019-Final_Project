@@ -1,6 +1,6 @@
 var express = require('express')
 var bodyParser = require('body-parser')
-var states_api = require('./routes/activity.js')
+var activity_api = require('./routes/activity.js')
 var path = require('path')
 
 var app = express()
@@ -10,7 +10,7 @@ app.use(express.static(path.join(__dirname, 'client', 'dist')))
 
 app.use(bodyParser.json())
 
-app.use('/api', states_api)
+app.use('/api', activity_api)
 
 //Error handlers - for not found, and app errors
 app.use(function(req, res, next){
