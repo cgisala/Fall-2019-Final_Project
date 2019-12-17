@@ -6,22 +6,21 @@
 
     <div id="activity-table">
         <table class="table">
+
+            <!-- Table heading -->
             <tr>
                 <th>Date</th>
                 <th>Duration</th>
                 <th>Activity</th>
             </tr>
-            <tr>
-                <td v-for="activity in activities" v-bind:key="activity.date"
-                    v-bind:date="date">{{ activity.date }}</td>
+            
+            <!-- Loops over the object and displays the data -->
+            <tr v-for="activity in activities" :key="activity.id" >
+                <td>{{ activity.date }}</td>
+                <td>{{ activity.duration }}</td>
+                <td>{{ activity.activity }}</td>
 
             </tr>
-            <!-- <StudentForm
-                v-for="activity in activities" v-bind:key="activity.date"
-                v-bind:date="date"
-                v-bind:duration="duration"
-                v-bind:activity="activity">
-            </StudentForm> -->
         </table>
     </div>
 
@@ -34,21 +33,19 @@ export default {
     name: 'ActivityTable',
     data() {
         return {
-            date: '',
-            duration: '',
-            activity: ''
+            //Returns the array storing all the activities
+            activities: []
         }
     },
-    props: {
-        activities: Array
-    },
     mounted() {
+        //Calls the function
         this.getAll()
     },
     methods: {
+        //The getAll() function retrieves the data from the database
         getAll() {
             this.$activityService.getAll().then(data => {
-               console.log('activities', data) 
+              this.activities = data
             })
         }
     }

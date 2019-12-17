@@ -6,37 +6,33 @@
 
                 <form>
 
-                    <!-- TODO show error alert with list of errors,
-                         if there are errors in the form -->
                     <div class="alert alert-danger" v-show="errors && errors.length > 0">
                         <li v-for="error in errors">{{ error }}</li>
                     </div>
                     
+                    <!-- Date -->
                     <div class="form-group">
-            
                         <label class="form-label" for="when">Date</label>
-                        <!-- TODO v-model to app data property -->
                         <input id="when" class="form-control" type="date" v-model.lazy="date">
                     </div>
 
+                    <!-- Duration -->
                     <div class="form-group">
                         <label class="form-label" for="duration">Duration</label>
-                        <!-- TODO v-model to app data property -->
                         <input id="duration" class="form-control" v-model.number.lazy="duration">
                     </div>
 
+                    <!-- Activity -->
                     <div class="form-group">
                         <label class="form-label" for="type">Activity</label>
-                        <!-- TODO create a select. v-model type -->
-                        <!-- TODO create one option for each type  -->
                         <select class="form-control" v-model="type">
                             <option v-for="type in types" v-bind:value="type">{{ type }}</option>
                         </select>
                     
                     </div>
 
+                    <!-- Button -->
                     <div>
-                        <!-- TODO v-on click event -->
                         <button class="btn btn-primary mt-2" type="button" v-on:click="submit">Add record</button>
                     </div>
 
@@ -58,22 +54,9 @@ export default {
             errors: []
         }
     },
-    // computed: {
-    //     whenLocal() {
-    //         let date = new Date(this.when)
-    //         let timestamp = date.getTime() + (date.getTimezoneOffset() * 60 * 1000)
-    //         let localDate = new Date(timestamp)
-    //         return localDate
-    //    }
-    //},
     methods: {
               submit() {
                   this.errors = []
-
-                  //Validation for the date
-                  //if (this.whenLocal == 'Invalid Date' || this.whenLocal.getTime() > new Date().getTime()) {
-                       //this.errors.push('Select a valid date, today or in the past')
-                  //}
 
                   //Validation for the duration
                   if (typeof (this.duration) != "number" || this.duration <= 0) {
@@ -89,10 +72,6 @@ export default {
                         this.$activityService.addActivity(activity).then( activity => {
                             console.log('It works')
                         })
-                        //this.activityRecords.push(record)
-                        // this.activityRecords.sort(function (r1, r2) {
-                        //     return r1.when.getTime() - r2.when.getTime()
-                        // })
                     }
                 }
             }
