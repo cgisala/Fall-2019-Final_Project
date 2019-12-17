@@ -3,7 +3,6 @@
         <h2>What is this site for?</h2>
 
         <p>This site is for tracking and analyzing personal activities</p>
-        <p></p>
     </div>
 </template>
 
